@@ -70,7 +70,7 @@ function displayResults (responseJson) {
   $('#deckCards').empty();
   for (let i=0; i < responseJson.cards.length; i++){
     $('#deckCards').append(
-      `<li><h3>${responseJson.cards[i][name][1]}</h3></li>`
+      `<li><h3>${responseJson.cards[i].name}</h3></li>`
 
     );
     $('#deckList').removeClass('hidden');
