@@ -1,6 +1,6 @@
 'use strict'
 
-const accessToken = 'USJyg1LLNQZDm9jqIBxN5KGpTjgc72ejp4'
+const accessToken = ''
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -46,7 +46,7 @@ function getDeck(hearthStoneDeckId) {
 
     const options = {
     "headers": new Headers({
-      "Authorization": "Bearer USJyg1LLNQZDm9jqIBxN5KGpTjgc72ejp4" })
+      "Authorization": "Bearer " })
     };
    
 
@@ -57,10 +57,24 @@ fetch(url, options)
     }
     throw new Error(response.statusText);
 })
-.then(responseJson => console.log(responseJson))
+.then(responseJson => displayResults(responseJson))
 .catch(err => {$('js-error-message').text(`something went wrong: ${err.message}`);
 });
 
+}
+
+function displayResults (responseJson) {
+  console.log(responseJson);
+  console.log(responseJson.cards.length);
+  console.log(responseJson.cards[0][2]);
+  $('#deckCards').empty();
+  for (let i=0; i < responseJson.cards.length; i++){
+    $('#deckCards').append(
+      `<li><h3>${responseJson.cards[i][name][1]}</h3></li>`
+
+    );
+    $('#deckList').removeClass('hidden');
+  }
 }
 
 $(watchForm);

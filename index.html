@@ -5,7 +5,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
- <link rel="stylesheet" href="">
+ <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
@@ -18,22 +18,31 @@
     </nav>
     <section>
         <div class="container">
-            <p> Enter a HearthStone deck id</p>
+            <p> Enter a Hearthstone deck id</p>
             <div id="content">
                 <div class="row">
                     <div class="col s6">
                         <form id="deckForm">
-                            <div class="inputField col s6">
                                 <input type="text" placeholder="HearthStone deck id" id="deckInput">
                                 <input type="submit" placeholder="Get HearthStone Deck" class="btn grey">
-                            </form>
-                            <form id="deckForm">
+                        </form>
+                    </div>
+                </div>
+            </div>    
+        
+                            <div id = "deckList" class = "hidden">
+                                <h6>Hearthstone Deck</h6>
+                                <ul id="deckCards"></ul>
+        </div>
+    </section>
+                            
+                            <!--<form id="deckForm">
                                 <div class="inputField col s6">
                                     <input type="text" placeholder="Name" id="deckName">
                                     <input type="text" placeholder="deckId" id="submitdeckid">
                                     <input type="text" placeholder="brief description to describe your deck" id=description>
                                     <input type="submit" placeholder="submut" id="submitdeck">
-                                </form>
+                                </form> -->
 
 
                             </body>
