@@ -64,18 +64,16 @@ fetch(url, options)
 }
 
 function displayResults (responseJson) {
-  console.log(responseJson);
-  console.log(responseJson.cards.length);
-  console.log(responseJson.cards[0][2]);
   $('#deckCards').empty();
   for (let i=0; i < responseJson.cards.length; i++){
+    const name = responseJson.cards[i].name.en_us;
+    console.dir(name);
     $('#deckCards').append(
-      `<li><h3>${responseJson.cards[i].name}</h3></li>`
-
+      <li><h3>${name}</h3></li>
     );
     $('#deckList').removeClass('hidden');
   }
-}
+ }
 
 $(watchForm);
 
