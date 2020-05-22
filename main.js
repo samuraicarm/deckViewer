@@ -41,7 +41,6 @@ function watchForm() {
 
   
 
-
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
     .map(key => `${key}=${params[key]}`)
@@ -80,17 +79,34 @@ fetch(url, options)
 function displayResults (responseJson) {
   console.log(responseJson);
   $('#deckCards').empty();
+  const deckClass = responseJson.class.name.en_US;
+  const deckCode = responseJson.deckCode;
+  $('#deckCards').append(
+   `<li><h6>Deck Class: ${deckClass}</h6></li>
+   <li><h6>Deck ID: ${deckCode}</h6></li>`);
+
   for (let i=0; i < responseJson.cards.length; i++){
     const name = responseJson.cards[i].name.en_US;
     const imageUrl = responseJson.cards[i].image.en_US;
+    const manaCost = responseJson.cards[i].manaCost;
+    const attack = responseJson.cards[i].attack;
+    const health = responseJson.cards[i].health;
+    const deckDescription = responseJson.cards[i].text.en_US;
    
     $('#deckCards').append(
-      `<li><h3>${name}</h3></li>
-      <li><p><img src= "${imageUrl}"></p></li>`
+      `<li><p>Card Name: ${name}</p></li>
+     <li><p> Mana Cost: ${manaCost}</p></li>
+      <li><p><img src= "${imageUrl}"></p></li>
+      <li><p> Attack: ${attack}</p></li>
+      <li><p> Health: ${health}</p></li>
+      <li><p> Card Text: ${deckDescription}</p></li>
+      <hr>`
     );
     $('#deckList').removeClass('hidden');
   }
  }
+
+
 
 $(watchForm);
 $(getRandom);

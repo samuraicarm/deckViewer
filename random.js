@@ -1,12 +1,14 @@
 let randomHearthstoneDeck = [
     {
   deckName: "Basic Druid",
+  class: "Druid",
   id: "AAECAbSKAwAPQ1qdAdUB/gGFA8YEngWFBpoI5AjZCtoKlg2XDQA=",
   source: "https://hearthstone.gamepedia.com/Basic_deck"
 },
 
   {
   deckName: "Basic Hunter",
+  class: "Hunter",
   id: "AAECAYoWAA9D2AGBAqQC0wKdA94EiAXtBusHlwjZCtoK+QqXDQA=",
   source: "https://hearthstone.gamepedia.com/Basic_deck"
   },
@@ -14,6 +16,7 @@ let randomHearthstoneDeck = [
 
   {
   deckName: "Basic Mage", 
+  class: "Mage",
   id: "AAECAf0EAA9NvwHYAZwCoQK7Ar8DqwS0BPsEngXZCtoK+QqWDQA=",
   source: "https://hearthstone.gamepedia.com/Basic_deck"
 },
@@ -21,6 +24,7 @@ let randomHearthstoneDeck = [
 
   {
   deckName: "Basic Paladin",  
+  class: "Paladin",
   id: "AAECAYsWAA9GnQH6AaMCtALTAv8CnQPuBIgFngXXBfEFmgf5CgA=",
   source: "https://hearthstone.gamepedia.com/Basic_deck"
 },
