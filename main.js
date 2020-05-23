@@ -1,11 +1,12 @@
 'use strict'
 
-const accessToken = ''
+const accessToken = 'USrr5JuK2jzncnTkcFuu831xN24VnuPFE6'
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
 const defaultDeck = 'AAEBAaIHCLICrwSSlwPBrgOCsQPjtAObtgPLwAMLtAHtAs0DiAePlwP1pwO5rgP+rgOqrwPOrwPDtgMA';
 const randomButton = document.getElementById('randomButton');
+const hsDeck = [];
 
 $(document).ready(function(){
     console.log("ready");
@@ -59,7 +60,7 @@ function getDeck(hearthStoneDeckId) {
 
     const options = {
     "headers": new Headers({
-      "Authorization": "Bearer " })
+      "Authorization": "Bearer USrr5JuK2jzncnTkcFuu831xN24VnuPFE6" })
     };
    
 
@@ -84,7 +85,17 @@ function displayResults (responseJson) {
   $('#deckCards').append(
    `<li><h6>Deck Class: ${deckClass}</h6></li>
    <li><h6>Deck ID: ${deckCode}</h6></li>`);
+   hsDeck = responseJson.cards;
+   removeDuplicates(hsDeck);
+  }
 
+   function removeDuplicates() {
+     let uniqueDeck = Array.from(new Set(hsDeck))
+     return uniqueDeck
+      }
+     
+    /*
+  function displayDeckDetails(uniqueCards) {
   for (let i=0; i < responseJson.cards.length; i++){
     const name = responseJson.cards[i].name.en_US;
     const imageUrl = responseJson.cards[i].image.en_US;
@@ -92,7 +103,7 @@ function displayResults (responseJson) {
     const attack = responseJson.cards[i].attack;
     const health = responseJson.cards[i].health;
     const deckDescription = responseJson.cards[i].text.en_US;
-   
+
     $('#deckCards').append(
       `<li><p>Card Name: ${name}</p></li>
      <li><p> Mana Cost: ${manaCost}</p></li>
@@ -105,7 +116,7 @@ function displayResults (responseJson) {
     $('#deckList').removeClass('hidden');
   }
  }
-
+*/
 
 
 $(watchForm);
