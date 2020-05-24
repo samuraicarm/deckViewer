@@ -85,16 +85,19 @@ function displayResults (responseJson) {
   $('#deckCards').append(
    `<li><h6>Deck Class: ${deckClass}</h6></li>
    <li><h6>Deck ID: ${deckCode}</h6></li>`);
-   
+
    hsDeck = responseJson.cards;
    console.log(hsDeck);
 
-   hsDeck.sort((a, b) => a.hsDeck.name.en_US.localeCompare(b.hsDeck.name.en_US));
-  
-   displayDeckDetails(sortHsDeck)
+   hsDeck.sort(function(a,b){
+    console.log('I get called to sort cards');
+    hsDeck.sort((a, b) => a.hsDeck.name.en_US.localeCompare(b.hsDeck.name.en_US));
+    console.log(hsDeck);
+   });
 
-
-  function displayDeckDetails(hsDeck) {  
+   displayDeckDetails(hsDeck);
+ 
+  function displayDeckDetails(hsDeck) {
   for (let i=0; i < hsDeck.length; i++){
     const name = hsDeck[i].name.en_US;
     const imageUrl = hsDeck[i].image.en_US;
