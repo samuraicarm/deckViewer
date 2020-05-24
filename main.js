@@ -88,9 +88,11 @@ function displayResults (responseJson) {
 
    hsDeck = responseJson.cards;
    console.log(hsDeck);
-   hsDeck.sort((a, b) => a.hsDeck.name.en_US.localeCompare(b.hsDeck.name.en_US));
   
-
+   hsDeck.sort((a, b) => {
+    console.log(a.name.en_US)
+    return a.name.en_US.localeCompare(b.name.en_US)
+  });
 
    displayDeckDetails(hsDeck);
  
