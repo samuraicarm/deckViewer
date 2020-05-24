@@ -6,7 +6,7 @@ const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
 const defaultDeck = 'AAEBAaIHCLICrwSSlwPBrgOCsQPjtAObtgPLwAMLtAHtAs0DiAePlwP1pwO5rgP+rgOqrwPOrwPDtgMA';
 const randomButton = document.getElementById('randomButton');
-const hsDeck = [];
+let hsDeck = [];
 
 $(document).ready(function(){
     console.log("ready");
@@ -80,29 +80,34 @@ fetch(url, options)
 function displayResults (responseJson) {
   console.log(responseJson);
   $('#deckCards').empty();
-  const deckClass = responseJson.class.name.en_US;
-  const deckCode = responseJson.deckCode;
+  const deckClass = responseJson.class.name.en_US;;
+  const [deckCode, keys] = responseJson.deckCode.split('locale');
   $('#deckCards').append(
    `<li><h6>Deck Class: ${deckClass}</h6></li>
    <li><h6>Deck ID: ${deckCode}</h6></li>`);
-   hsDeck = responseJson.cards;
-   removeDuplicates(hsDeck);
-  }
 
-   function removeDuplicates() {
-     let uniqueDeck = Array.from(new Set(hsDeck))
-     return uniqueDeck
-      }
-     
-    /*
-  function displayDeckDetails(uniqueCards) {
-  for (let i=0; i < responseJson.cards.length; i++){
-    const name = responseJson.cards[i].name.en_US;
-    const imageUrl = responseJson.cards[i].image.en_US;
-    const manaCost = responseJson.cards[i].manaCost;
-    const attack = responseJson.cards[i].attack;
-    const health = responseJson.cards[i].health;
-    const deckDescription = responseJson.cards[i].text.en_US;
+   hsDeck = responseJson.cards;
+   console.log(hsDeck);
+
+   hsDeck.sort(function(a,b){
+    console.log('I get called to sort cards')
+    let nameA = a.hsDeck.name.en_US.toLowerCase();
+    let nameB = b.hsDeck.name.en_US.toLowerCase();
+    if (nameA < nameB) {return -1;}
+    if (nameA > nameB) {return -1;}
+    return 0;
+   });
+
+   displayDeckDetails(hsDeck);
+ 
+  function displayDeckDetails(hsDeck) {
+  for (let i=0; i < hsDeck.length; i++){
+    const name = hsDeck[i].name.en_US;
+    const imageUrl = hsDeck[i].image.en_US;
+    const manaCost = hsDeck[i].manaCost;
+    const attack = hsDeck[i].attack;
+    const health = hsDeck[i].health;
+    const deckDescription = hsDeck[i].text.en_US;
 
     $('#deckCards').append(
       `<li><p>Card Name: ${name}</p></li>
@@ -116,9 +121,9 @@ function displayResults (responseJson) {
     $('#deckList').removeClass('hidden');
   }
  }
-*/
+}
+
 
 
 $(watchForm);
 $(getRandom);
-
