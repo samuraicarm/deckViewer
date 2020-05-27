@@ -1,6 +1,6 @@
 'use strict'
 
-const accessToken = 'USrr5JuK2jzncnTkcFuu831xN24VnuPFE6'
+const accessToken = 'US6ctLwWWvU6yxCINUnzQP2A5zaQLJvWks'
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -60,7 +60,7 @@ function getDeck(hearthStoneDeckId) {
 
     const options = {
     "headers": new Headers({
-      "Authorization": "Bearer USrr5JuK2jzncnTkcFuu831xN24VnuPFE6" })
+      "Authorization": "Bearer US6ctLwWWvU6yxCINUnzQP2A5zaQLJvWks" })
     };
    
 
@@ -83,16 +83,19 @@ function displayResults (responseJson) {
   const deckClass = responseJson.class.name.en_US;;
   const [deckCode, keys] = responseJson.deckCode.split('locale');
   $('#deckCards').append(
-   `<li><h6>Deck Class: ${deckClass}</h6></li>
-   <li><h6>Deck ID: ${deckCode}</h6></li>`);
+   `<li><h4>Class: ${deckClass}</h6>
+   <li><h4>Deck ID: ${deckCode}</h6>`);
 
    hsDeck = responseJson.cards;
    console.log(hsDeck);
   
+
    hsDeck.sort((a, b) => {
     console.log(a.name.en_US)
     return a.name.en_US.localeCompare(b.name.en_US)
   });
+
+  
 
    displayDeckDetails(hsDeck);
  
@@ -105,16 +108,15 @@ function displayResults (responseJson) {
     const health = hsDeck[i].health;
     const deckDescription = hsDeck[i].text.en_US;
 
-    $('#deckCards').append(
-      `<li><p>Card Name: ${name}</p></li>
-     <li><p> Mana Cost: ${manaCost}</p></li>
-      <li><p><img src= "${imageUrl}"></p></li>
-      <li><p> Attack: ${attack}</p></li>
-      <li><p> Health: ${health}</p></li>
-      <li><p> Card Text: ${deckDescription}</p></li>
+    $('#deckDetails').append(
+      `<p>Card Name: ${name}</p>
+      <p> Card Text: ${deckDescription}</p>
+      <p><img src= "${imageUrl}" alt="${deckDescription}"></p>
+      <p> Mana Cost: ${manaCost}</p>
+      <p> Attack: ${attack} Health: ${health}</p>
       <hr>`
     );
-    $('#deckList').removeClass('hidden');
+    
   }
  }
 }

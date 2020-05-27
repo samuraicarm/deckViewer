@@ -4,55 +4,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <nav class="black">
-        <div class="navWrapper">
-            <div class="container">
-                <a href="#!" class="brandLogo"> Hearthstone Deck Viewer</a>
-            </div>
-        </div>
+    <nav class = "site-nav grid">
+        <header>
+        <h1> Hearthstone Deck Viewer</h1>
+    </header>
+    <!--
+            <ul>
+             <li>About</li> 
+            <li> How to find your deck code</li> 
+            </ul> 
+        -->       
     </nav>
-    <section>
-        <div class="container">
+    <section id="welcome" class="grid">
+            
+        <div class="welcome-text"><h2>Easily view hearthstone decks</h2></div> 
+        
+       </section>
+
+    <section id = "deckFinder">
             <p> Enter a Hearthstone deck id</p>
-            <div id="content">
-                <div class="row">
-                    <div class="col s6">
                         <form id="deckForm">
                                 <input type="text" placeholder="HearthStone deck id" id="deckInput">
                                 <input type="submit" placeholder="Get HearthStone Deck" class="btn grey">
                             <p> or click <button type="button" class="btn grey" id="randomButton">RANDOM </button> to view a random Hearthstone deck.</p>
                         </form>
-                         <!--  <p>Or see a list of decks by class</p>
-                        <form>  
-                        <label> Hearthstone Classes</label>
-                            <select name = "class" id ="class">
-                               <option value = "Druid"> Druid</option>
-                               <option value = "Hunter">Hunter</option>
-                                <option value = "Mage"> Mage</option>
-                                <option value = "Paladin">Paladin</option>
-                                <option value = "Priest">Priest</option>
-                                <option value = "Rogue">Rogue</option>
-                                <option value = "Shaman">Shaman</option>
-                                 <option value = "Warlock">Warlock</option>
-                                 <option value = "Warrior">Warrior</option>             
-                        </select>
-                         </form> 
-                        <button type="button" class="btn grey" id="classButton">Decks by Class</button>
-                   -->  
-                    </div>
-                </div>
+     </section>                 
+    
+    <main> 
+  
+        <article id="deckInformation">
+            <h3> Hearthstone Deck</h3>
+            <div class="card grid">
+            <div id = "deckMain">
+                                 
+                                <div id="deckCards"></div>
+            </div>
+            
+            <div id = "deckDetails">
+                
+
             </div>    
-        <hr>
-                            <div id = "deckList" class = "hidden">
-                                <h6>Hearthstone Deck</h6>
-                                <ul id="deckCards"></ul>
         </div>
-    </section>
+        </article>
+
+
+    </main>
+
+    <footer class="grid">
+    <p> this is a student project and not affliated with Blizzard or Hearthstone</p>
+
+    </footer>
+  
                             
                             <!--<form id="deckForm">
                                 <div class="inputField col s6">
