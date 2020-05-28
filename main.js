@@ -83,9 +83,8 @@ function displayResults (responseJson) {
   const deckClass = responseJson.class.name.en_US;;
   const [deckCode, keys] = responseJson.deckCode.split('locale');
   $('#deckCards').append(
-   `<hr><h4>This Hearthstone Deck's class is: <b>${deckClass}</b>.</h4>
-   <input type="hidden" id="input-deckcode" value="Copied!">
-   <button class="btn-copy">Copy Deck Id</button>`);
+   `<hr><h4>This Hearthstone Deck's class is: <b>${deckClass}</b>.</h4>`);
+
 
    
    hsDeck = responseJson.cards;
@@ -122,23 +121,6 @@ function displayResults (responseJson) {
   }
  }
 
- const clipboard = new Clipboard('.btn-copy', {
-  text: function() {
-      return document.querySelector('input[type=hidden]').value;
-        }
-      });
-      clipboard.on('success', function(e) {
-        alert("Copied!");
-        e.clearSelection();
-      });
-      $("#input-deckcode").val(deckCode);
-      //safari
-      if (navigator.vendor.indexOf("Apple")==0 && /\sSafari\//.test(navigator.userAgent)) {
-      $('.btn-copy').on('click', function() {
-      let msg = window.prompt("Copy this code",deckCode);
-
-});
-}
 
 
 }
@@ -148,3 +130,4 @@ function displayResults (responseJson) {
 
 $(watchForm);
 $(getRandom);
+
