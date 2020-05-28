@@ -5,15 +5,13 @@
     <title>Document</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
     <nav class = "site-nav grid">
-        <header>
         <h1> Hearthstone Deck Viewer</h1>
-    </header>
     <!--
             <ul>
              <li>About</li> 
@@ -28,47 +26,41 @@
        </section>
 
     <section id = "deckFinder">
-            <p> Enter a Hearthstone deck id</p>
                         <form id="deckForm">
-                                <input type="text" placeholder="HearthStone deck id" id="deckInput">
-                                <input type="submit" placeholder="Get HearthStone Deck" class="btn grey">
-                            <p> or click <button type="button" class="btn grey" id="randomButton">RANDOM </button> to view a random Hearthstone deck.</p>
+                            <label for = "hearthstoneID"> Enter a Hearthstone deck id</label>
+                          <input type="text" placeholder="HearthStone deck id" id="deckInput">
+                            <input type="submit" placeholder="Get HearthStone Deck" >
+                            <label for = "randomhearthstoneID"> Or click <button type="button"  id="randomButton">RANDOM </button> to view a random Hearthstone deck.</label>
                         </form>
+
      </section>                 
     
     <main> 
   
-        <article id="deckInformation">
-            <h3> Hearthstone Deck</h3>
-            <div class="card grid">
+        <section id="deckInformation">
+           
             <div id = "deckMain">
                                  
                                 <div id="deckCards"></div>
             </div>
-            
+            <div class="card grid">
+
             <div id = "deckDetails">
                 
 
             </div>    
         </div>
-        </article>
+    </section>
 
 
     </main>
 
     <footer class="grid">
-    <p> this is a student project and not affliated with Blizzard or Hearthstone</p>
+    <p> This is a student project made with the Hearthstone API. This is not endorsed by Blizzard or Hearthstone.</p>
 
     </footer>
   
                             
-                            <!--<form id="deckForm">
-                                <div class="inputField col s6">
-                                    <input type="text" placeholder="Name" id="deckName">
-                                    <input type="text" placeholder="deckId" id="submitdeckid">
-                                    <input type="text" placeholder="brief description to describe your deck" id=description>
-                                    <input type="submit" placeholder="submut" id="submitdeck">
-                                </form> -->
 
 
                             </body>

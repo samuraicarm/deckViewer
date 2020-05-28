@@ -1,6 +1,6 @@
 'use strict'
 
-const accessToken = 'US6ctLwWWvU6yxCINUnzQP2A5zaQLJvWks'
+const accessToken = 'UST387R7TBZv476eZ9sQRtdmhkluvgIqpH'
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -60,7 +60,7 @@ function getDeck(hearthStoneDeckId) {
 
     const options = {
     "headers": new Headers({
-      "Authorization": "Bearer US6ctLwWWvU6yxCINUnzQP2A5zaQLJvWks" })
+      "Authorization": "Bearer UST387R7TBZv476eZ9sQRtdmhkluvgIqpH" })
     };
    
 
@@ -83,9 +83,11 @@ function displayResults (responseJson) {
   const deckClass = responseJson.class.name.en_US;;
   const [deckCode, keys] = responseJson.deckCode.split('locale');
   $('#deckCards').append(
-   `<li><h4>Class: ${deckClass}</h6>
-   <li><h4>Deck ID: ${deckCode}</h6>`);
+   `<hr><h4>This Hearthstone Deck's class is: <b>${deckClass}</b>.</h4>
+   <input type="hidden" id="input-deckcode" value="Copied!">
+   <button class="btn-copy">Copy Deck Id</button>`);
 
+   
    hsDeck = responseJson.cards;
    console.log(hsDeck);
   
@@ -119,7 +121,28 @@ function displayResults (responseJson) {
     
   }
  }
+
+ const clipboard = new Clipboard('.btn-copy', {
+  text: function() {
+      return document.querySelector('input[type=hidden]').value;
+        }
+      });
+      clipboard.on('success', function(e) {
+        alert("Copied!");
+        e.clearSelection();
+      });
+      $("#input-deckcode").val(deckCode);
+      //safari
+      if (navigator.vendor.indexOf("Apple")==0 && /\sSafari\//.test(navigator.userAgent)) {
+      $('.btn-copy').on('click', function() {
+      let msg = window.prompt("Copy this code",deckCode);
+
+});
 }
+
+
+}
+
 
 
 
