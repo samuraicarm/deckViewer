@@ -1,6 +1,6 @@
 'use strict'
 
-const accessToken = 'UST387R7TBZv476eZ9sQRtdmhkluvgIqpH'
+const accessToken = 'USn17IWh838feaSMB6HlAZRMQin1FwT9Jq'
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -60,7 +60,7 @@ function getDeck(hearthStoneDeckId) {
 
     const options = {
     "headers": new Headers({
-      "Authorization": "Bearer UST387R7TBZv476eZ9sQRtdmhkluvgIqpH" })
+      "Authorization": "Bearer USn17IWh838feaSMB6HlAZRMQin1FwT9Jq" })
     };
    
 
@@ -83,7 +83,8 @@ function displayResults (responseJson) {
   const deckClass = responseJson.class.name.en_US;;
   const [deckCode, keys] = responseJson.deckCode.split('locale');
   $('#deckCards').append(
-   `<hr><h4>This Hearthstone Deck's class is: <b>${deckClass}</b>.</h4>`);
+   `<hr><h4>This Hearthstone Deck's class is: <b>${deckClass}</b>.</h4>
+   <input type="text" value=${deckCode} id="codeID"> <button onclick="copyCode()">Copy Deck Code</button>`);
 
 
    
@@ -102,30 +103,36 @@ function displayResults (responseJson) {
  
   function displayDeckDetails(hsDeck) {
   for (let i=0; i < hsDeck.length; i++){
-    const name = hsDeck[i].name.en_US;
     const imageUrl = hsDeck[i].image.en_US;
+    const name = hsDeck[i].name.en_US;
     const manaCost = hsDeck[i].manaCost;
     const attack = hsDeck[i].attack;
     const health = hsDeck[i].health;
     const deckDescription = hsDeck[i].text.en_US;
+   
 
     $('#deckDetails').append(
       `<p>Card Name: ${name}</p>
       <p> Card Text: ${deckDescription}</p>
-      <p><img src= "${imageUrl}" alt="${deckDescription}"></p>
       <p> Mana Cost: ${manaCost}</p>
       <p> Attack: ${attack} Health: ${health}</p>
+      <p class ="deckimage"><img src= "${imageUrl}" alt="${deckDescription}"></p>
       <hr>`
     );
-    
+  
   }
- }
 
-
-
+ 
+}
 }
 
-
+function copyCode() {
+  let copyText = document.getElementById("codeID");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
+}
 
 
 $(watchForm);
