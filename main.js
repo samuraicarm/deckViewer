@@ -1,6 +1,6 @@
 'use strict'
 
-const accessToken = 'USn17IWh838feaSMB6HlAZRMQin1FwT9Jq'
+const accessToken = 'USYAnmVYja2TRplk3Oe3cUlBvBhp7mDXzM'
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -12,10 +12,6 @@ $(document).ready(function(){
     console.log("ready");
   });
   
-$(function() {
-    console.log('App loaded! Waiting for submit!');
-  });
-
   getDeck(defaultDeck);
 
 function watchForm() {
@@ -60,20 +56,19 @@ function getDeck(hearthStoneDeckId) {
 
     const options = {
     "headers": new Headers({
-      "Authorization": "Bearer USn17IWh838feaSMB6HlAZRMQin1FwT9Jq" })
-    };
+      "Authorization": "Bearer USYAnmVYja2TRplk3Oe3cUlBvBhp7mDXzM" })
+  };
    
-
-fetch(url, options)
-.then(response => {
-    if (response.ok){
-        return response.json();
-    }
-    throw new Error(response.statusText);
-})
-.then(responseJson => displayResults(responseJson))
-.catch(err => {$('js-error-message').text(`something went wrong: ${err.message}`);
-});
+    fetch(url, options)
+    .then(response => {
+        if (response.ok){
+            return response.json();
+        }
+        throw new Error(response.statusText);
+    })
+    .then(responseJson => displayResults(responseJson))
+    .catch(err => {$('js-error-message').text(`something went wrong: ${err.message}`);
+  });
 
 }
 
@@ -86,20 +81,18 @@ function displayResults (responseJson) {
    `<hr><h4>This Hearthstone Deck's class is: <b>${deckClass}</b>.</h4>
    <input type="text" value=${deckCode} id="codeID"> <button onclick="copyCode()">Copy Deck Code</button>`);
 
-
-   
    hsDeck = responseJson.cards;
-   console.log(hsDeck);
+   //console.log(hsDeck);
   
 
    hsDeck.sort((a, b) => {
-    console.log(a.name.en_US)
+   // console.log(a.name.en_US)
     return a.name.en_US.localeCompare(b.name.en_US)
   });
 
-  
+  manaCostArray(hsDeck);
 
-   displayDeckDetails(hsDeck);
+  displayDeckDetails(hsDeck);
  
   function displayDeckDetails(hsDeck) {
   for (let i=0; i < hsDeck.length; i++){
@@ -109,7 +102,7 @@ function displayResults (responseJson) {
     const attack = hsDeck[i].attack;
     const health = hsDeck[i].health;
     const deckDescription = hsDeck[i].text.en_US;
-   
+  
 
     $('#deckDetails').append(
       `<p>Card Name: ${name}</p>
@@ -121,10 +114,10 @@ function displayResults (responseJson) {
     );
   
   }
-
+  }
  
 }
-}
+
 
 function copyCode() {
   let copyText = document.getElementById("codeID");
@@ -134,6 +127,65 @@ function copyCode() {
   alert("Copied the text: " + copyText.value);
 }
 
+function manaCostArray(hsDeck) {
+  let manaCostCards = [];
+  hsDeck.sort();
+  for (let i = 0; i < hsDeck.length; i++ ) {
+        manaCostCards.push(hsDeck[i].manaCost);
+  }
+  
+  //console.log(manaCostCards);
+  manaSpread(manaCostCards);
+  return manaCostCards;
+} 
+
+function manaSpread(manaCostCards) {
+  let manaCardCount = [];
+  // make a copy of the input array
+  let copy = manaCostCards.slice(0);
+ // console.log('the array has been copied')
+  // first loop goes over every element
+  for (let i = 0; i < manaCostCards.length; i++) {
+    let myCount = 0;	
+    // loop over every element in the copy and see if it's the same
+    for (let w = 0; w < copy.length; w++) {
+      if (manaCostCards[i] == copy[w]) {
+        // increase amount of times duplicate is found
+        myCount++;
+        // sets item to undefined
+        delete copy[w];
+      }
+    }
+ 
+    if (myCount > 0) {
+      let a = new Object();
+      a.value = manaCostCards[i];
+      a.count = myCount;
+      manaCardCount.push(a);
+    }
+  }
+    
+    manaCardCount.sort(function(a,b) {
+      return a.value-b.value;
+    });
+
+    console.log(manaCardCount);
+    showSummary(manaCardCount)
+};
+
+function showSummary (manaCardCount){
+  $('#deckSummary').append(
+    `<p><b> Mana Cost Summary</b></p>`
+  );
+  for (const [key,value] of Object.entries(manaCardCount)){
+    $('#deckSummary').append(
+      `<ul>
+      <li> Mana Cost: ${key} Count: ${value.count}</li>
+      </ul>`
+    );
+
+  }
+}
 
 $(watchForm);
 $(getRandom);

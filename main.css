@@ -139,6 +139,10 @@ select {
     border-radius: 5px; /* 5px rounded corners */
   }
 
+  #deckSummary {
+    padding-top: 10px;
+  }
+
   p.deckimage {
       padding-bottom: 10px;
   }
