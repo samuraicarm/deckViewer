@@ -96,7 +96,7 @@ function displayResults (responseJson) {
   displayDeckDetails(hsDeck);
 }
   function displayDeckDetails(hsDeck) {
-    $('#deckDetails').empty();
+    $('.card-container').empty();
   for (let i=0; i < hsDeck.length; i++){
     const imageUrl = hsDeck[i].image.en_US;
     const name = hsDeck[i].name.en_US;
@@ -106,21 +106,34 @@ function displayResults (responseJson) {
     const deckDescription = hsDeck[i].text.en_US;
    
     if (attack === undefined && health === undefined) {
-      $('#deckDetails').append(
-        `<p>Card Name: ${name}</p>
-        <p> Card Text: ${deckDescription}</p>
-        <p> Mana Cost: ${manaCost}</p>
-        <p class ="deckimage"><img src= "${imageUrl}" alt="${deckDescription}"></p>
-        <hr>`
+      $('.card-container').append(
+        `<article class="card">
+        <header class="card-title">
+         <p>${name}</p>
+          </header>
+          <p class = "card-cost"> Mana Cost: ${manaCost} </p>
+          <figure class="card-image">
+          <img src= "${imageUrl}" class="thumbnail" alt="${deckDescription}"></figure>
+          <main class="card-description">
+          ${deckDescription}
+          </main>
+  
+      </article>`
       );
     } else {
-    $('#deckDetails').append(
-      `<p>Card Name: ${name}</p>
-      <p> Card Text: ${deckDescription}</p>
-      <p> Mana Cost: ${manaCost}</p>
-      <p> Attack: ${attack} Health: ${health}</p>
-      <p class ="deckimage"><img src= "${imageUrl}" alt="${deckDescription}"></p>
-      <hr>`
+    $('.card-container').append(
+      `<article class="card">
+      <header class="card-title">
+       <p>${name}</p>
+        </header>
+        <p class = "card-cost"> Mana Cost: ${manaCost} </p>
+        <figure class="card-image">
+        <img src= "${imageUrl}" class="thumbnail" alt="${deckDescription}"></figure>
+        <main class="card-description">
+        ${deckDescription}
+        </main>
+        <p class = "card-stats"> Attack: ${attack} Health: ${health} </p>
+    </article>`
     );
     }
   }
