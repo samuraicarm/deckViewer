@@ -174,6 +174,7 @@ function manaSpread(manaCostCards) {
 };
 
 function showSummary (manaCardCount){
+  $('#deckSummary').empty();
   $('#deckSummary').append(
     `<p><b> Mana Cost Summary</b></p>`
   );
