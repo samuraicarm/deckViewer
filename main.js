@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const accessToken = 'USYAnmVYja2TRplk3Oe3cUlBvBhp7mDXzM'
+const accessToken = 'USYAnmVYja2TRplk3Oe3cUlBvBhp7mDXzM';
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -21,6 +21,7 @@ function watchForm() {
     e.preventDefault();
     const hearthStoneDeckId = deckInput.value;
     getDeck(hearthStoneDeckId);
+    $('#deckForm')[0].reset();
     console.log(hearthStoneDeckId );
     });
   }
@@ -40,7 +41,7 @@ function watchForm() {
 
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
-    .map(key => `${key}=${params[key]}`)
+    .map(key => `${key}=${params[key]}`);
     return queryItems.join('&');
 }
 
@@ -49,7 +50,7 @@ function getDeck(hearthStoneDeckId) {
     locale: 'en_US',
     access_token: accessToken
     };
-    const queryString = formatQueryParams(params)
+    const queryString = formatQueryParams(params);
     const url = deckUrl + hearthStoneDeckId + queryString;
 
     console.log(url);
@@ -75,7 +76,7 @@ function getDeck(hearthStoneDeckId) {
 function displayResults (responseJson) {
   console.log(responseJson);
   $('#deckCards').empty();
-  const deckClass = responseJson.class.name.en_US;;
+  const deckClass = responseJson.class.name.en_US;
   const [deckCode, keys] = responseJson.deckCode.split('locale');
   $('#deckCards').append(
    `<hr><h4>This Hearthstone Deck's class is: <b>${deckClass}</b>.</h4>
@@ -87,14 +88,15 @@ function displayResults (responseJson) {
 
    hsDeck.sort((a, b) => {
    // console.log(a.name.en_US)
-    return a.name.en_US.localeCompare(b.name.en_US)
+    return a.name.en_US.localeCompare(b.name.en_US);
   });
 
   manaCostArray(hsDeck);
 
   displayDeckDetails(hsDeck);
- 
+}
   function displayDeckDetails(hsDeck) {
+    $('#deckDetails').empty();
   for (let i=0; i < hsDeck.length; i++){
     const imageUrl = hsDeck[i].image.en_US;
     const name = hsDeck[i].name.en_US;
@@ -102,8 +104,16 @@ function displayResults (responseJson) {
     const attack = hsDeck[i].attack;
     const health = hsDeck[i].health;
     const deckDescription = hsDeck[i].text.en_US;
-  
-
+   
+    if (attack === undefined && health === undefined) {
+      $('#deckDetails').append(
+        `<p>Card Name: ${name}</p>
+        <p> Card Text: ${deckDescription}</p>
+        <p> Mana Cost: ${manaCost}</p>
+        <p class ="deckimage"><img src= "${imageUrl}" alt="${deckDescription}"></p>
+        <hr>`
+      );
+    } else {
     $('#deckDetails').append(
       `<p>Card Name: ${name}</p>
       <p> Card Text: ${deckDescription}</p>
@@ -112,17 +122,14 @@ function displayResults (responseJson) {
       <p class ="deckimage"><img src= "${imageUrl}" alt="${deckDescription}"></p>
       <hr>`
     );
-  
+    }
   }
   }
- 
-}
-
 
 function copyCode() {
   let copyText = document.getElementById("codeID");
   copyText.select();
-  copyText.setSelectionRange(0, 99999)
+  copyText.setSelectionRange(0, 99999);
   document.execCommand("copy");
   alert("Copied the text: " + copyText.value);
 }
@@ -158,20 +165,20 @@ function manaSpread(manaCostCards) {
     }
  
     if (myCount > 0) {
-      let a = new Object();
-      a.value = manaCostCards[i];
+      let a = new Object({});
+      a.mana = manaCostCards[i];
       a.count = myCount;
       manaCardCount.push(a);
     }
   }
     
     manaCardCount.sort(function(a,b) {
-      return a.value-b.value;
+      return a.mana-b.mana;
     });
 
     console.log(manaCardCount);
-    showSummary(manaCardCount)
-};
+    showSummary(manaCardCount);
+}
 
 function showSummary (manaCardCount){
   $('#deckSummary').empty();
