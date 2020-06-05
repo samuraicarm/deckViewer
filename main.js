@@ -108,12 +108,12 @@ function displayResults (responseJson) {
     if (attack === undefined && health === undefined) {
       $('.card-container').append(
         `<article class="card">
+        <figure class="card-image">
+          <img src= "${imageUrl}" class="thumbnail" alt="${deckDescription}"></figure>
         <header class="card-title">
          <p>${name}</p>
           </header>
           <p class = "card-cost"> Mana Cost: ${manaCost} </p>
-          <figure class="card-image">
-          <img src= "${imageUrl}" class="thumbnail" alt="${deckDescription}"></figure>
           <main class="card-description">
           ${deckDescription}
           </main>
@@ -123,12 +123,12 @@ function displayResults (responseJson) {
     } else {
     $('.card-container').append(
       `<article class="card">
+      <img src= "${imageUrl}" class="thumbnail" alt="${deckDescription}"></figure>
       <header class="card-title">
        <p>${name}</p>
         </header>
         <p class = "card-cost"> Mana Cost: ${manaCost} </p>
         <figure class="card-image">
-        <img src= "${imageUrl}" class="thumbnail" alt="${deckDescription}"></figure>
         <main class="card-description">
         ${deckDescription}
         </main>

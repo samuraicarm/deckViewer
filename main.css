@@ -24,7 +24,7 @@
   }
   
   h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     padding-left: 20px;
   }
   
@@ -34,7 +34,7 @@
   }
   
   h3 {
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
   
   h2 {
@@ -61,13 +61,13 @@
     padding: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 4fr));
     grid-gap: 1rem;
+    margin-left:1rem;
+    margin-right:1rem;
 }
 .card {
     display: grid;
-}
-
-.card {
-  box-shadow: 0px 1px 5px #555;
+    box-shadow: 0px 1px 5px #555;
+    height: auto;
 }
 
 .card-title {
@@ -115,8 +115,6 @@ select {
     margin-left:30px;
     color: var(--secondary)
   }
-
-  
  
   #welcome {
     margin-right: 0px;
@@ -133,23 +131,35 @@ select {
     margin-left:35px;
   }
 
+  
+
  #deckForm {
     grid-column: 1/9;
     grid-row: 1/4;
     margin: 40px 40px;
  }
 
-  .deckMain{
-    grid-column: 1/9;
-    grid-row: 1/4;
-   }
+ #deckInput{
+   width: 200px;
+ }
+
+ #codeID {
+  width: 200px;
+}
 
    #deckCards {
+    grid-column:1;
+    grid-row-start: 2;
     margin-right: 0px;
     margin-left:0px;
     padding-right: 10px; 
     padding-left:0px;
     width: 100%;
+   }
+
+   #deckSummary {
+    grid-row-start: 4;
+    grid-column: 1;
    }
 
   #deckInformation h3 {
@@ -158,30 +168,25 @@ select {
   }
  
   #deckInformation {
-   grid-column: 1/9;
    margin-right: 30px;
    margin-left: 30px;
    padding-right: 15px;
    padding-left: 15px;
   }
 
-  #deckDetails {
-    padding-top:10px;
-    grid-column: 1/9;
-    grid-row: 5/8;
-    margin: 10px 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
-  }
-
+  
   #deckSummary {
     padding-top: 10px;
   }
 
-  p.deckimage {
-      padding-bottom: 10px;
-  }
+ .card-cost {
+   padding-left: 10px;
+ }
+
+ .card-stats {
+  padding-left: 10px;
+ }
+
 
   footer {
     height: 73px; 
@@ -196,33 +201,28 @@ select {
     color: var(--secondary);
    }
   
-
-/* large tablets and laptop styles */
-@media screen and (min-width: 960px){
-.deckMain{
- grid-column: 1/5;
- grid-row: 1;
- margin-left: 2%;
- padding-left:0;
- padding-right:0;
-}
-
-#deckDetails p.cardcopy {
-    padding-top:10px;
-    grid-column: 1/9;
-    grid-row: 1;
-    margin: 10px 10px;
-  }
-
-#deckDetails p.deckimage{
- padding-top:10px;
- grid-column: 7/9;
- grid-row: 1;
- margin: 10px 10px 20px 0;
-}
-
-#deckDetails p {
- padding-top:10px;
-
-}
+/*media*/
+@media screen and (min-width: 900px) {
+  #deckCards {
+    grid-column:1/4;
+    grid-row-start: 2;
+    margin-right: 0px;
+    margin-left:0px;
+    padding-right: 10px; 
+    padding-left:0px;
+    width: 100%;
    }
+
+   #deckSummary {
+    grid-row-start: 2;
+    grid-column: 7/9;
+   }
+
+   #deckInput{
+    width: 390px;
+  }
+ 
+  #codeID {
+   width: 390px;
+ }
+  }
