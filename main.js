@@ -57,7 +57,7 @@ function getDeck(hearthStoneDeckId) {
 
     const options = {
     "headers": new Headers({
-      "Authorization": "Bearer USNpaOqf11Sjty1TdzkR781sALs9fIOLShM" })
+      "Authorization": "Bearer USNpaOqf11Sjty1TdzkR781sALs9fIOLSh" })
   };
    
     fetch(url, options)
