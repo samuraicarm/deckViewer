@@ -200,6 +200,28 @@ select {
     grid-column: 1/9;
     color: var(--secondary);
    }
+
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid var(--primary); 
+  border-collapse: collapse;
+}
+
+
+th {
+  padding-top:5px;
+  background-color:  #555;
+  color: var(--secondary); 
+}
+
+th, td {
+text-align: center;
+}
   
 /*media*/
 @media screen and (min-width: 900px) {
