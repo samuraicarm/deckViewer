@@ -208,8 +208,7 @@ function showSummary(manaCardCount) {
 }
 
 function showText() {
-  let cardText = document.getElementsByClassName(".card-text");
-  console.log("show text has been called");
+  let cardText = document.getElementById("card-info");
   if (cardText.style.display === "none") {
     cardText.style.display = "block";
   } else {
@@ -219,7 +218,7 @@ function showText() {
 
 function changeButtonText() {
   console.log("change button text has been called");
-  let buttonText = document.getElementsByClassName(".buttonshow");
+  let buttonText = document.getElementById("btn-show-text");
   if (buttonText.innerHTML === "Show Card Text") {
     buttonText.innerHTML = "Hide Card Text";
   } else {
