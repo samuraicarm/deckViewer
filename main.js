@@ -1,6 +1,6 @@
 'use strict';
 
-const accessToken = 'USEI01gXe5TdD7eYxLfmhuzyRWofB6o0Ti';
+const accessToken = 'USL4yAhGdRDjdNZe6nRtU6f9yqWgAMb5fn';
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -53,7 +53,7 @@ function getDeck(hearthStoneDeckId) {
 
   const options = {
     "headers": new Headers({
-      "Authorization": "Bearer USEI01gXe5TdD7eYxLfmhuzyRWofB6o0Ti"
+      "Authorization": "Bearer USL4yAhGdRDjdNZe6nRtU6f9yqWgAMb5fn"
     })
   };
 
@@ -109,6 +109,7 @@ function displayDeckDetails(hsDeck) {
         `<article class="card">
         <figure class="card-image">
           <img src= "${imageUrl}" class="thumbnail" alt="${deckDescription}"></figure>
+          <div id ="card-info" class="card-text">
         <header class="card-title">
          <p>${name}</p>
           </header>
@@ -116,6 +117,8 @@ function displayDeckDetails(hsDeck) {
           <main class="card-description">
           ${deckDescription}
           </main>
+          </div>
+          <button id="btn-show-text" class="buttonshow" onclick="showText(); changeButtonText();"> Show Card Text </button>
       </article>`
       );
     } else {
@@ -160,18 +163,12 @@ function manaCostArray(hsDeck) {
 
 function manaSpread(manaCostCards) {
   let manaCardCount = [];
-  // make a copy of the input array
   let copy = manaCostCards.slice(0);
-  // console.log('the array has been copied')
-  // first loop goes over every element
   for (let i = 0; i < manaCostCards.length; i++) {
     let myCount = 0;
-    // loop over every element in the copy and see if it's the same
     for (let w = 0; w < copy.length; w++) {
       if (manaCostCards[i] == copy[w]) {
-        // increase amount of times duplicate is found
         myCount++;
-        // sets item to undefined
         delete copy[w];
       }
     }
@@ -207,6 +204,26 @@ function showSummary(manaCardCount) {
       `<tr><td> ${key} </td><td>${value.count}</td>`
     );
 
+  }
+}
+
+function showText() {
+  let cardText = document.getElementsByClassName(".card-text");
+  console.log("show text has been called");
+  if (cardText.style.display === "none") {
+    cardText.style.display = "block";
+  } else {
+    cardText.style.display = "none";
+  }
+}
+
+function changeButtonText() {
+  console.log("change button text has been called");
+  let buttonText = document.getElementsByClassName(".buttonshow");
+  if (buttonText.innerHTML === "Show Card Text") {
+    buttonText.innerHTML = "Hide Card Text";
+  } else {
+    buttonText.innerHTML = "Show Card Text";
   }
 }
 
