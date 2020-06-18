@@ -1,74 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hearthstone Deck Viewer</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital@0;1&display=swap" rel="stylesheet">
-    
- <link rel="stylesheet" href="main.css">
+
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <nav class = "site-nav grid">
-        <img src="logo.png" class = "logo" alt="Hearthstone logo"> <h1> Hearthstone Deck Viewer</h1>
-    <!--
+    <nav class="site-nav grid">
+        <img src="logo.png" class="logo" alt="Hearthstone logo">
+        <h1> Hearthstone Deck Search</h1>
+        <!--
             <ul>
              <li>About</li> 
             <li> How to find your deck code</li> 
             </ul> 
-        -->       
+        -->
     </nav>
     <section id="welcome" class="grid">
-            
-        <div class="welcome-text"><h2>Easily view hearthstone decks</h2></div> 
-        
-       </section>
 
-    <section id = "deckFinder">
-                        <form id="deckForm">
-                            <label for = "deckInput"> Enter a Hearthstone deck id</label>
-                          <input type="text" placeholder="HearthStone deck id" id="deckInput">
-                            <input type="submit">
-                            <label for = "randomButton"> Or click <button type="button"  id="randomButton">RANDOM </button> to view a random Hearthstone deck.</label>
-                        </form>
+        <div class="welcome-text">
+            <h2>Easily view decks</h2>
+        </div>
 
-     </section>                 
-    
-    <main> 
-  
+    </section>
+
+    <section id="deckFinder">
+        <form id="deckForm">
+            <label for="deckInput"> Enter a Hearthstone deck id</label>
+            <input type="text" placeholder="HearthStone deck id" id="deckInput">
+            <input type="submit">
+            <label for="randomButton"> Or click <button type="button"  id="randomButton">RANDOM </button> to view a random Hearthstone deck.</label>
+        </form>
+
+    </section>
+
+    <main>
+
         <section id="deckInformation" class="grid">
-          
-      
-                                 
-        <div id="deckCards"></div>
-           
-            <div id="deckSummary">
-                
-             
-            </div>
-        </section>     
 
-        <section class = "card-container">
-          
+
+
+            <div id="deckCards"></div>
+
+            <div id="deckSummary">
+
+
+            </div>
+        </section>
+
+        <section class="card-container">
+
         </section>
 
 
     </main>
 
     <footer class="grid">
-    <p> This is a student project made with the Hearthstone API. This is not endorsed by Blizzard or Hearthstone.</p>
+        <p> This is a student project made with the Hearthstone API. This is not endorsed by Blizzard or Hearthstone.</p>
 
     </footer>
-  
-                            
 
 
-                      
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="main.js"></script>
-<script src="random.js"></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="main.js"></script>
+    <script src="random.js"></script>
 
 </body>
