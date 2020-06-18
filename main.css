@@ -263,7 +263,7 @@ figure {
 }
 
 footer {
-    height: 73px;
+    height: 85px;
     margin-top: 10px;
     background-color: #DAA520;
 }
@@ -272,7 +272,7 @@ footer p {
     margin-right: 30px;
     margin-left: 30px;
     padding-top: 20px;
-    grid-column: 1/9;
+    grid-column: 1/13;
 }
 
 table {
