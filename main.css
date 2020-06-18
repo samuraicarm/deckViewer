@@ -296,7 +296,30 @@ span {
 }
   
 /*media*/
-@media screen and (min-width: 900px) {
+
+@media screen and (min-width: 768px){
+.card-container {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+  grid-gap: 1rem;
+  margin-left:1rem;
+  margin-right:1rem;
+}
+
+figure.card-image{
+  padding-top: .5rem;
+}
+
+.card-image img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 1rem;
+  }
+
+}
+@media screen and (min-width: 1024px) {
   
   .card-container {
     display: grid;
@@ -306,6 +329,18 @@ span {
     margin-left:1rem;
     margin-right:1rem;
 }
+
+figure.card-image{
+  padding-top: .5rem;
+}
+
+.card-image img {
+display: block;
+margin-right: auto;
+margin-left: auto;
+padding-bottom: 1rem;
+}
+
 
   .site-nav {
     margin: 0 20px;
