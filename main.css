@@ -269,7 +269,7 @@ footer {
 }
 
 footer p {
-    margin-right: 30px;
+    margin-right: 10px;
     margin-left: 30px;
     padding-top: 20px;
     grid-column: 1/13;
