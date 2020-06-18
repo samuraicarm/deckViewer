@@ -102,7 +102,10 @@
 
 }
 
-
+.card-text {
+  padding-top: 1rem;
+  padding-left: .5rem;
+}
 
 img.card-image {
 display: block;
@@ -141,13 +144,14 @@ figure {
 margin-block-end: 0px;
 margin-inline-start: 0px;
  margin-inline-end: 0px;
+ padding-bottom: 1rem;
 }
 
 .card-image:hover{
   position:relative;
   top:-5px;
   left:-5px;
-  width:100%;
+  width:80%;
   height:auto;
   display:block;
   z-index:auto;
@@ -330,7 +334,7 @@ span {
     display: grid;
     box-shadow: 0px 1px 5px #DAA520;
     padding-bottom: 100px;
-    height: 600px;
+    height: 550px;
 
 }
 
@@ -350,7 +354,7 @@ span {
   display: grid;
   box-shadow: 0px 1px 5px #DAA520;
   padding-bottom: 100px;
-  height: 600px;
+  height: 550px;
 
 }
 

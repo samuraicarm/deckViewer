@@ -108,7 +108,8 @@ function displayDeckDetails(hsDeck) {
     if (attack === undefined && health === undefined) {
       $('.card-container').append(
         `<article class="card">
-          <img class="card-image" src= "${imageUrl}" alt="${deckDescription}">
+        <figure>
+          <img class="card-image" src= "${imageUrl}" alt="${deckDescription}"> </figure>
           <div id ="${id}" class="card-text">
         <header class="card-title">
          <p>${name}</p>
@@ -124,7 +125,7 @@ function displayDeckDetails(hsDeck) {
     } else {
       $('.card-container').append(
         `<article class="card">
-      <img class="card-image" src= "${imageUrl}" alt="${deckDescription}"></figure>
+        <figure> <img class="card-image" src= "${imageUrl}" alt="${deckDescription}"></figure>
       <div id ="${id}" class="card-text">
       <header class="card-title">
        <p>${name}</p>
