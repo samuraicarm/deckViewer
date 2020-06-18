@@ -82,11 +82,9 @@ function displayResults(responseJson) {
    <span id=“copy_feedback"></span>`);
 
     hsDeck = responseJson.cards;
-    //console.log(hsDeck);
 
 
     hsDeck.sort((a, b) => {
-        // console.log(a.name.en_US)
         return a.name.en_US.localeCompare(b.name.en_US);
     });
 
@@ -151,7 +149,6 @@ function copyCode() {
     copyText.setSelectionRange(0, 99999);
     document.execCommand("copy");
     $("#deckCards").append('<span id=“copy_feedback">Code Copied</span>');
-    //alert("Copied the text: " + copyText.value);
 }
 
 function manaCostArray(hsDeck) {
