@@ -1,6 +1,6 @@
 'use strict';
 
-const accessToken = 'USL4yAhGdRDjdNZe6nRtU6f9yqWgAMb5fn';
+const accessToken = 'US06cDG5lm98D6VSgPnbhy5i100XCtlMZq';
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -53,7 +53,7 @@ function getDeck(hearthStoneDeckId) {
 
   const options = {
     "headers": new Headers({
-      "Authorization": "Bearer USL4yAhGdRDjdNZe6nRtU6f9yqWgAMb5fn"
+      "Authorization": "Bearer US06cDG5lm98D6VSgPnbhy5i100XCtlMZq"
     })
   };
 
@@ -103,37 +103,42 @@ function displayDeckDetails(hsDeck) {
     const attack = hsDeck[i].attack;
     const health = hsDeck[i].health;
     const deckDescription = hsDeck[i].text.en_US;
+    const id = hsDeck[i].id;
 
     if (attack === undefined && health === undefined) {
       $('.card-container').append(
         `<article class="card">
         <figure class="card-image">
-          <img src= "${imageUrl}" class="thumbnail" alt="${deckDescription}"></figure>
-          <div id ="card-info" class="card-text">
+          <img src= "${imageUrl}" alt="${deckDescription}"></figure>
+          <div id ="${id}" class="card-text">
         <header class="card-title">
          <p>${name}</p>
           </header>
-          <p class = "card-cost"> Mana Cost: ${manaCost} </p>
+          <p class = "card-cost"> Mana: ${manaCost} </p>
           <main class="card-description">
           ${deckDescription}
           </main>
           </div>
-          <button id="btn-show-text" class="buttonshow" onclick="showText(); changeButtonText();"> Show Card Text </button>
+          
       </article>`
       );
     } else {
       $('.card-container').append(
         `<article class="card">
-      <img src= "${imageUrl}" class="thumbnail" alt="${deckDescription}"></figure>
+        <figure class="card-image">
+      <img src= "${imageUrl}" alt="${deckDescription}"></figure>
+      <div id ="${id}" class="card-text">
       <header class="card-title">
        <p>${name}</p>
         </header>
-        <p class = "card-cost"> Mana Cost: ${manaCost} </p>
-        <figure class="card-image">
+        <p class = "card-cost"> <b>Mana:</b> ${manaCost} </p>
+        <p class = "card-stats"> <b>Attack:</b> ${attack} </p>
+        <p class = "card-stats"> <b>Health:</b> ${health} </p>
         <main class="card-description">
         ${deckDescription}
         </main>
-        <p class = "card-stats"> Attack: ${attack} Health: ${health} </p>
+        </div>
+          
     </article>`
       );
     }
@@ -206,6 +211,7 @@ function showSummary(manaCardCount) {
 
   }
 }
+/*
 
 function showText() {
   let cardText = document.getElementById("card-info");
@@ -225,6 +231,7 @@ function changeButtonText() {
     buttonText.innerHTML = "Show Card Text";
   }
 }
+*/
 
 $(watchForm);
 $(getRandom);

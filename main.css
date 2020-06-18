@@ -5,7 +5,7 @@
   }
   
   /* reset */
-  body,p,a,ul,li{
+  body,p,a,ul,li, figure{
     margin:0;
     padding:0;
     text-decoration: none;
@@ -18,7 +18,7 @@
   /* base styles */
   
   body {
-  background: var(--secondary);
+  background: var(--primary);
   overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
   }
@@ -29,7 +29,7 @@
   }
   
   h1,h3,h4 {
-    color: #000000;
+    color: var(--secondary);
     font-weight: normal;
   }
   
@@ -43,13 +43,34 @@
     padding-left: 10px;
   }
 
+  label {
+    color: var(--secondary);
+    }
+  
+
+  p {
+    color: var(--secondary);
+  }
+
+
+ th {
+  background-color: #D3D3D3;
+
+ }
+  td {
+    color: var(--secondary);
+  }
+
+  table {
+    border-color: var(--secondary);
+    background-color: #DAA520;
+    };
+  
   img {
-    max-width: 100%;
+    max-width: 90%;
    }
 
-.card-text {
- display:none;
-}
+
 
 .buttonshow {
   width: 200px;
@@ -67,32 +88,58 @@
   .card-container {
     display: grid;
     padding: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 4fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
     grid-gap: 1rem;
     margin-left:1rem;
     margin-right:1rem;
 }
+
 .card {
     display: grid;
-    box-shadow: 0px 1px 5px #555;
+    box-shadow: 0px 1px 5px #DAA520;
     padding-bottom: 100px;
-    height: 550px;
+    height: 600px;
+
 }
+
+figure.card-image{
+  padding-top: .5rem;
+}
+
+.card-image img {
+display: block;
+margin-right: auto;
+margin-left: auto;
+padding-bottom: 1rem;
+}
+
+
+
+
+header p {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
 
 .card-title {
   font-size: 1rem;
   padding: .5rem;
 }
+
 .card-description {
   padding: .5rem;
   line-height: 1.6em;
+  color: var(--secondary);
+  font-style: italic;
+  width: 90%;
 }
 
 figure {
   margin: 0px;
 }
 
-.thumbnail:hover {
+.card-image:hover{
   position:relative;
   top:-5px;
   left:-5px;
@@ -105,25 +152,32 @@ figure {
 
   .site-nav {
     margin: 0 20px;
-    height: 73px; 
-    background-color: var(--primary);
+    height: 90px; 
+    background-color: #DAA520;
     width: 100%;
     margin-left: 0px;
    } 
 
-/*
-select {
-    display: block;
-}
-*/
+
 
 .site-nav h1 {
-    grid-column: 1/8;
+    grid-column: 2/8;
     grid-row:1;
     padding-bottom:10px;
     margin-left:30px;
     color: var(--secondary)
   }
+ 
+ .site-nav img {
+  position: inherit;
+  max-height: 100%;
+  max-width: 100%;
+  grid-column: 1/1;
+  grid-row:1;
+  padding-bottom:10px;
+  margin-left:30px;
+ } 
+  
  
   #welcome {
     margin-right: 0px;
@@ -139,6 +193,7 @@ select {
     width: 100%;
     margin-left:35px;
   }
+
 
   
 
@@ -199,15 +254,16 @@ select {
 
   footer {
     height: 73px; 
-    background-color: var(--primary);
+   margin-top: 10px;
+   background-color: #DAA520;
    } 
 
    footer p {
     margin-right: 30px;
     margin-left: 30px;
-    padding-top: 10px;
+    padding-top: 20px;
     grid-column: 1/9;
-    color: var(--secondary);
+   
    }
 
 
@@ -221,6 +277,9 @@ table, th, td {
   border-collapse: collapse;
 }
 
+caption {
+  color: var(--secondary); 
+}
 
 th {
   padding-top:5px;
@@ -231,9 +290,31 @@ th {
 th, td {
 text-align: center;
 }
+
+span {
+  color: var(--secondary); 
+}
   
 /*media*/
 @media screen and (min-width: 900px) {
+  
+  .card-container {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+    grid-gap: 1rem;
+    margin-left:1rem;
+    margin-right:1rem;
+}
+
+  .site-nav {
+    margin: 0 20px;
+    height: 73px; 
+    background-color: #DAA520;
+    width: 100%;
+    margin-left: 0px;
+   } 
+
   #deckCards {
     grid-column:1/4;
     grid-row-start: 2;
