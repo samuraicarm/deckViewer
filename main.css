@@ -1,97 +1,113 @@
 /* variables */
+
 :root {
     --primary: #000000;
-    --secondary:  #fffffc;  
-  }
-  
-  /* reset */
-  body,p,a,ul,li, figure{
-    margin:0;
-    padding:0;
+    --secondary: #fffffc;
+}
+
+
+/* reset */
+
+body,
+p,
+a,
+ul,
+li,
+figure {
+    margin: 0;
+    padding: 0;
     text-decoration: none;
-  }
-  
-  li {
+}
+
+li {
     list-style-type: none;
-  }
-  
-  /* base styles */
-  
-  body {
-  background: var(--primary);
-  overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
-  }
-  
-  h1 {
-    font-size: 1.8em;
+}
+
+
+/* base styles */
+
+body {
+    background: var(--primary);
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 1.7em;
     padding-left: 20px;
-  }
-  
-  h1,h3,h4 {
+}
+
+h1,
+h3,
+h4 {
     color: var(--secondary);
     font-weight: normal;
-  }
-  
-  h3 {
+}
+
+h3 {
     font-size: 1.5em;
-  }
-  
-  h2 {
-    font-size: 1.8em;
+}
+
+h2 {
+    font-size: 1.6em;
     font-style: 'Archivo Black';
     padding-left: 10px;
-  }
+}
 
-  label {
+label {
     color: var(--secondary);
-    }
-  
+}
 
-  p {
+p {
     color: var(--secondary);
-  }
+}
 
+th {
+    background-color: #D3D3D3;
+}
 
- th {
-  background-color: #D3D3D3;
-
- }
-  td {
+td {
     color: var(--secondary);
-  }
+}
 
-  table {
+table {
     border-color: var(--secondary);
     background-color: #DAA520;
-    };
-  
-  img {
+}
+
+;
+img {
     max-width: 100%;
-   }
+}
 
-
+img.logo {
+    grid-column: 1/13;
+    grid-row: 1;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .buttonshow {
-  width: 200px;
-  height: 25px;
-  margin-left: 60px;
+    width: 200px;
+    height: 25px;
+    margin-left: 60px;
 }
+
 
 /* mobile styles */
 
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-  }
-   
-  .card-container {
+}
+
+.card-container {
     display: grid;
     padding: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
     grid-gap: 1rem;
-    margin-left:1rem;
-    margin-right:1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .card {
@@ -99,303 +115,278 @@
     box-shadow: 0px 1px 5px #DAA520;
     padding-bottom: 100px;
     height: 600px;
-
 }
 
 .card-text {
-  padding-top: 1rem;
-  padding-left: .5rem;
+    padding-top: 1rem;
+    padding-left: .5rem;
 }
 
 img.card-image {
-display: block;
-padding-top: .5rem;
-margin-right: auto;
-margin-left: auto;
-padding-bottom: 1rem;
-width: 80%;
-overflow: hidden;
+    display: block;
+    padding-top: .5rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 1rem;
+    width: 80%;
+    overflow: hidden;
 }
-
-
-
 
 header p {
-  font-weight: bold;
-  font-size: 1.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
-
 .card-title {
-  font-size: 1rem;
-  padding: .5rem;
+    font-size: 1rem;
+    padding: .5rem;
 }
 
 .card-description {
-  padding: .5rem;
-  line-height: 1.6em;
-  color: var(--secondary);
-  font-style: italic;
-  width: 90%;
+    padding: .5rem;
+    line-height: 1.6em;
+    color: var(--secondary);
+    font-style: italic;
+    width: 90%;
 }
 
 figure {
- margin-block-start: 0px;
-margin-block-end: 0px;
-margin-inline-start: 0px;
- margin-inline-end: 0px;
- padding-bottom: 1rem;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-bottom: 1rem;
 }
 
-.card-image:hover{
-  position:relative;
-  top:-5px;
-  left:-5px;
-  width:80%;
-  height:auto;
-  display:block;
-  z-index:auto;
+.card-image:hover {
+    position: relative;
+    top: -5px;
+    left: -5px;
+    width: 80%;
+    height: auto;
+    display: block;
+    z-index: auto;
 }
 
-
-  .site-nav {
+.site-nav {
     margin: 0 20px;
-    height: 90px; 
+    height: 90px;
     background-color: #DAA520;
     width: 100%;
     margin-left: 0px;
-   } 
-
-
+}
 
 .site-nav h1 {
     grid-column: 2/13;
-    grid-row:1;
-    padding-bottom:10px;
-    margin-left:30px;
+    grid-row: 1;
+    padding-bottom: 10px;
+    margin-left: 30px;
     color: var(--secondary)
-  }
- 
- .site-nav img {
-  position: inherit;
-  max-height: 100%;
-  max-width: 100%;
-  grid-column: 1/1;
-  grid-row:1;
-  padding-bottom:10px;
-  margin-left:30px;
- } 
-  
- 
-  #welcome {
-    margin-right: 0px;
-    margin-left:0px;
-    padding-right: 10px; 
-    padding-left:0px;
-    background-color: #D3D3D3;
-  }
+}
 
-.welcome-text{
+.site-nav img {
+    position: inherit;
+    max-height: 100%;
+    max-width: 100%;
+    grid-column: 1/1;
+    grid-row: 1;
+    padding-bottom: 10px;
+    margin-left: 30px;
+}
+
+#welcome {
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 10px;
+    padding-left: 0px;
+    background-color: #D3D3D3;
+}
+
+.welcome-text {
     grid-column: 1/13;
     color: var(--primary);
     width: 100%;
-    margin-left:35px;
-  }
+    margin-left: 35px;
+}
 
-
-  
-
- #deckForm {
+#deckForm {
     grid-column: 1/9;
     grid-row: 1/4;
     margin: 40px 40px;
- }
-
- #deckInput{
-   width: 200px;
- }
-
- #codeID {
-  width: 200px;
 }
 
-   #deckCards {
-    grid-column:1;
+#deckInput {
+    width: 200px;
+}
+
+#codeID {
+    width: 200px;
+}
+
+#deckCards {
+    grid-column: 1;
     grid-row-start: 2;
     margin-right: 0px;
-    margin-left:0px;
-    padding-right: 10px; 
-    padding-left:0px;
+    margin-left: 0px;
+    padding-right: 10px;
+    padding-left: 0px;
     width: 100%;
-   }
+}
 
-   #deckSummary {
+#deckSummary {
     grid-row-start: 4;
     grid-column: 1;
-   }
+}
 
-  #deckInformation h3 {
+#deckInformation h3 {
     margin-bottom: 0;
     text-align: center;
-  }
- 
-  #deckInformation {
-   margin-right: 30px;
-   margin-left: 30px;
-   padding-right: 15px;
-   padding-left: 15px;
-  }
+}
 
-  
-  #deckSummary {
+#deckInformation {
+    margin-right: 30px;
+    margin-left: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#deckSummary {
     padding-top: 10px;
-  }
+}
 
- .card-cost {
-   padding-left: 10px;
- }
+.card-cost {
+    padding-left: 10px;
+}
 
- .card-stats {
-  padding-left: 10px;
- }
+.card-stats {
+    padding-left: 10px;
+}
 
+footer {
+    height: 73px;
+    margin-top: 10px;
+    background-color: #DAA520;
+}
 
-  footer {
-    height: 73px; 
-   margin-top: 10px;
-   background-color: #DAA520;
-   } 
-
-   footer p {
+footer p {
     margin-right: 30px;
     margin-left: 30px;
     padding-top: 20px;
     grid-column: 1/9;
-   
-   }
-
-
-table {
-  table-layout: fixed;
-  width: 100%;
 }
 
-table, th, td {
-  border: 1px solid var(--primary); 
-  border-collapse: collapse;
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid var(--primary);
+    border-collapse: collapse;
 }
 
 caption {
-  color: var(--secondary); 
+    color: var(--secondary);
 }
 
 th {
-  padding-top:5px;
-  background-color:  #555;
-  color: var(--secondary); 
+    padding-top: 5px;
+    background-color: #555;
+    color: var(--secondary);
 }
 
-th, td {
-text-align: center;
+th,
+td {
+    text-align: center;
 }
 
 span {
-  color: var(--secondary); 
+    color: var(--secondary);
 }
-  
+
+
 /*media*/
 
-@media screen and (min-width: 768px){
-.card-container {
-  display: grid;
-  padding: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
-  grid-gap: 1rem;
-  margin-left:1rem;
-  margin-right:1rem;
+@media screen and (min-width: 768px) {
+    .card-container {
+        display: grid;
+        padding: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+        grid-gap: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    #deckSummary {
+        grid-row-start: 2;
+        grid-column: 6/9;
+    }
+    img.card-image {
+        display: block;
+        padding-top: .5rem;
+        margin-right: auto;
+        margin-left: auto;
+        padding-bottom: 1rem;
+        width: 80%;
+        overflow: hidden;
+    }
+    .card {
+        display: grid;
+        box-shadow: 0px 1px 5px #DAA520;
+        padding-bottom: 100px;
+        height: 550px;
+    }
 }
 
-#deckSummary {
-  grid-row-start: 2;
-  grid-column: 6/9;
- }
-
- img.card-image {
-  display: block;
-  padding-top: .5rem;
-  margin-right: auto;
-  margin-left: auto;
-  padding-bottom: 1rem;
-  width: 80%;
-  overflow: hidden;
-  }
-
-  .card {
-    display: grid;
-    box-shadow: 0px 1px 5px #DAA520;
-    padding-bottom: 100px;
-    height: 550px;
-
-}
-
-}
 @media screen and (min-width: 1024px) {
-  
-  .card-container {
-    display: grid;
-    padding: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
-    grid-gap: 1rem;
-    margin-left:1rem;
-    margin-right:1rem;
+    .card-container {
+        display: grid;
+        padding: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+        grid-gap: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .card {
+        display: grid;
+        box-shadow: 0px 1px 5px #DAA520;
+        padding-bottom: 100px;
+        height: 550px;
+    }
+    img.card-image {
+        display: block;
+        padding-top: .5rem;
+        margin-right: auto;
+        margin-left: auto;
+        padding-bottom: 1rem;
+        width: 80%;
+        overflow: hidden;
+    }
+    .site-nav {
+        margin: 0 20px;
+        height: 73px;
+        background-color: #DAA520;
+        width: 100%;
+        margin-left: 0px;
+    }
+    #deckCards {
+        grid-column: 1/4;
+        grid-row-start: 2;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding-right: 10px;
+        padding-left: 0px;
+        width: 100%;
+    }
+    #deckSummary {
+        grid-row-start: 2;
+        grid-column: 7/9;
+    }
+    #deckInput {
+        width: 390px;
+    }
+    #codeID {
+        width: 390px;
+    }
 }
-
-.card {
-  display: grid;
-  box-shadow: 0px 1px 5px #DAA520;
-  padding-bottom: 100px;
-  height: 550px;
-
-}
-
-img.card-image {
-  display: block;
-  padding-top: .5rem;
-  margin-right: auto;
-  margin-left: auto;
-  padding-bottom: 1rem;
-  width: 80%;
-  overflow: hidden;
-  }
-
-  .site-nav {
-    margin: 0 20px;
-    height: 73px; 
-    background-color: #DAA520;
-    width: 100%;
-    margin-left: 0px;
-   } 
-
-  #deckCards {
-    grid-column:1/4;
-    grid-row-start: 2;
-    margin-right: 0px;
-    margin-left:0px;
-    padding-right: 10px; 
-    padding-left:0px;
-    width: 100%;
-   }
-
-   #deckSummary {
-    grid-row-start: 2;
-    grid-column: 7/9;
-   }
-
-   #deckInput{
-    width: 390px;
-  }
- 
-  #codeID {
-   width: 390px;
- }
-  }
