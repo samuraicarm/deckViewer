@@ -24,7 +24,7 @@
   }
   
   h1 {
-    font-size: 1.5em;
+    font-size: 1.8em;
     padding-left: 20px;
   }
   
@@ -67,7 +67,7 @@
     };
   
   img {
-    max-width: 80%;
+    max-width: 100%;
    }
 
 
@@ -196,7 +196,7 @@ margin-inline-start: 0px;
   }
 
 .welcome-text{
-    grid-column: 1/8;
+    grid-column: 1/13;
     color: var(--primary);
     width: 100%;
     margin-left:35px;
