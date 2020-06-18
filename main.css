@@ -316,6 +316,7 @@ figure.card-image{
   margin-right: auto;
   margin-left: auto;
   padding-bottom: 1rem;
+  width: 80%;
   }
 
 }
@@ -339,6 +340,7 @@ display: block;
 margin-right: auto;
 margin-left: auto;
 padding-bottom: 1rem;
+width: 80%;
 }
 
 
