@@ -311,17 +311,10 @@ span {
   margin-right:1rem;
 }
 
-figure.card-image{
-  padding-top: .5rem;
-}
-
-.card-image img {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  padding-bottom: 1rem;
-  width: 80%;
-  }
+#deckSummary {
+  grid-row-start: 2;
+  grid-column: 6/9;
+ }
 
 }
 @media screen and (min-width: 1024px) {
@@ -333,18 +326,6 @@ figure.card-image{
     grid-gap: 1rem;
     margin-left:1rem;
     margin-right:1rem;
-}
-
-figure.card-image{
-  padding-top: .5rem;
-}
-
-.card-image img {
-display: block;
-margin-right: auto;
-margin-left: auto;
-padding-bottom: 1rem;
-width: 80%;
 }
 
 
