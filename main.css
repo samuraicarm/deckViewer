@@ -102,15 +102,16 @@
 
 }
 
-figure.card-image{
-  padding-top: .5rem;
-}
 
-.card-image img {
+
+img.card-image {
 display: block;
+padding-top: .5rem;
 margin-right: auto;
 margin-left: auto;
 padding-bottom: 1rem;
+width: 100%;
+overflow: hidden;
 }
 
 
@@ -136,7 +137,10 @@ header p {
 }
 
 figure {
-  margin: 0px;
+ margin-block-start: 0px;
+margin-block-end: 0px;
+margin-inline-start: 0px;
+ margin-inline-end: 0px;
 }
 
 .card-image:hover{
