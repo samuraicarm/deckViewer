@@ -10,6 +10,8 @@ If you are new to the game Hearthstone, it’s hard to know how to start buildin
 
 Technologies Used: HTML, CSS, JQUERY, JAVASCRIPT
 
+This was made using the Hearthstone API. View the documentation here: https://develop.battle.net/documentation/hearthstone
+
 How it works:
 On load the page will show a default deck, from there you can enter a Hearthstone Deck code or press the random button to view a random deck. For your convience, I've listed a few Hearthstone codes below. You can also take these codes and use them in Hearthstone on PC or your phone.
 
