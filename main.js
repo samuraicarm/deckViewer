@@ -202,9 +202,9 @@ function showSummary(manaCardCount) {
     </thead>
     </table>`
     );
-    for (const [key, value] of Object.entries(manaCardCount)) {
+    for (const [value] of Object.entries(manaCardCount)) {
         $('table').append(
-            `<tr><td> ${key} </td><td>${value.count}</td>`
+            `<tr><td> ${value.mana} </td><td>${value.count}</td>`
         );
 
     }
