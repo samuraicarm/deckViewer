@@ -219,6 +219,12 @@ figure {
     width: 200px;
 }
 
+#errorMessage {
+    margin: 40px 40px;
+    grid-column: 1/9;
+    color:#FF0000;
+}
+
 #codeID {
     width: 200px;
 }

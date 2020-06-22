@@ -1,6 +1,6 @@
 'use strict';
 
-const accessToken = 'USkn5kBocmDoOuDe77lvMeNwurM7F0TcWU';
+const accessToken = 'USwhYSK3BkBO9fvl7lJPyar8pjdK1KwI4c';
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -53,11 +53,11 @@ function getDeck(hearthStoneDeckId) {
 
     const options = {
         "headers": new Headers({
-            "Authorization": "Bearer USkn5kBocmDoOuDe77lvMeNwurM7F0TcWU"
+            "Authorization": "Bearer USwhYSK3BkBO9fvl7lJPyar8pjdK1KwI4c"
         })
     };
 
-    fetch(url, options)
+    fetch(url,options)
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -66,7 +66,7 @@ function getDeck(hearthStoneDeckId) {
         })
         .then(responseJson => displayResults(responseJson))
         .catch(err => {
-            $('js-error-message').text(`something went wrong: ${err.message}`);
+            $("#error").append('<span id="errorMessage"> Deck not found try again. </span>');
         });
 
 }
@@ -74,6 +74,7 @@ function getDeck(hearthStoneDeckId) {
 function displayResults(responseJson) {
     console.log(responseJson);
     $('#deckCards').empty();
+    $("#error").empty();
     const deckClass = responseJson.class.name.en_US;
     const [deckCode, keys] = responseJson.deckCode.split('locale');
     $('#deckCards').append(

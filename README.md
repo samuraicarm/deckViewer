@@ -15,6 +15,8 @@ This was made using the Hearthstone API. View the documentation here: https://de
 How it works:
 On load the page will show a default deck, from there you can enter a Hearthstone Deck code or press the random button to view a random deck. For your convience, I've listed a few Hearthstone codes below. You can also take these codes and use them in Hearthstone on PC or your phone.
 
+A completed Heartstone deck contains 30 cards. Duplicate cards can exist in decks. 
+
 To pull your own Hearthstone deck codes: 
     1. Select My Collection
     2. Under My Decks select a deck
@@ -42,3 +44,5 @@ Source: https://www.hearthstonetopdecks.com/decks/budget-token-treant-druid-deck
 Murloc Shaman
 AAEBAaoIAA/FA9sD/gPQB6cIkwniiQOMlAO1mAPGmQP0mQPUpQOvpwP9pwPKqwMA
 Source: https://hsreplay.net/decks/IWVgKIK1aNKnwj00T4Az1c/#tab=overview
+
+This is a student project. Not endorsed by Blizzard or Hearthstone. 
