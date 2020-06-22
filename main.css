@@ -26,6 +26,11 @@ li {
 
 /* base styles */
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background: var(--primary);
     overflow-x: hidden;
