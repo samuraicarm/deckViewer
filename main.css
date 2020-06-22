@@ -272,6 +272,7 @@ footer {
     height: 85px;
     margin-top: 10px;
     background-color: #DAA520;
+    overflow-x: hidden;
 }
 
 footer p {
