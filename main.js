@@ -1,6 +1,6 @@
 'use strict';
 
-const accessToken = 'USwhYSK3BkBO9fvl7lJPyar8pjdK1KwI4c';
+const accessToken = 'USW4UDYhVIgTKqtwrDYImEtIZp1MN2QsML';
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -53,7 +53,7 @@ function getDeck(hearthStoneDeckId) {
 
     const options = {
         "headers": new Headers({
-            "Authorization": "Bearer USwhYSK3BkBO9fvl7lJPyar8pjdK1KwI4c"
+            "Authorization": "Bearer USW4UDYhVIgTKqtwrDYImEtIZp1MN2QsML"
         })
     };
 
