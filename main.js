@@ -1,6 +1,6 @@
 'use strict';
 
-const accessToken = 'USprYc6JanO1Cyb45MPBA84Dx76wcvI5Mc;
+const accessToken = 'USprYc6JanO1Cyb45MPBA84Dx76wcvI5Mc';
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
