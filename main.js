@@ -1,6 +1,6 @@
 'use strict';
 
-const accessToken = 'US7gdn2JfQcCB6OFEYD7ljC8gJ5RNlTfZp';
+let accessToken = '';
 const deckUrl = 'https://us.api.blizzard.com/hearthstone/deck/';
 const deckInput = document.getElementById('deckInput');
 const deckForm = document.getElementById('deckForm');
@@ -8,7 +8,7 @@ const defaultDeck = 'AAEBAaIHCLICrwSSlwPBrgOCsQPjtAObtgPLwAMLtAHtAs0DiAePlwP1pwO
 const randomButton = document.getElementById('randomButton');
 let hsDeck = [];
 
-getDeck(defaultDeck);
+
 
 function watchForm() {
     console.log("watch form");
@@ -53,7 +53,7 @@ function getDeck(hearthStoneDeckId) {
 
     const options = {
         "headers": new Headers({
-            "Authorization": "Bearer US7gdn2JfQcCB6OFEYD7ljC8gJ5RNlTfZp"
+            "Authorization": `Bearer ${accessToken}`
         })
     };
 
@@ -210,6 +210,21 @@ function showSummary(manaCardCount) {
     }
 }
 
+function setup(){
+    
+    const settings = {
+        "url": "https://us.battle.net/oauth/token?grant_type=client_credentials&client_id=8438a319f7584ba4a494e83e83c8a5dd&client_secret=1U6It7E3OaxxODYUnUfSF2Yknari4s3S",
+        "method": "GET",
+        "timeout": 0
+    };
 
-$(watchForm);
-$(getRandom);
+    $.ajax(settings).done(function (response) {
+        accessToken = response.access_token;
+        watchForm();
+        getRandom();
+        getDeck(defaultDeck);
+    });
+}
+
+
+$(setup);
