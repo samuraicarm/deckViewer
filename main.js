@@ -208,7 +208,7 @@ function setup() {
   const settings = {
     url:
       "https://us.battle.net/oauth/token?grant_type=client_credentials&client_id=8438a319f7584ba4a494e83e83c8a5dd&client_secret=HubwMZHxwpIo53sVl2ke82775isRFj2U",
-    method: "GET",
+    method: "POST",
     timeout: 0,
   };
 
